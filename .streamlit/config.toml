@@ -1,0 +1,21 @@
+[server]
+headless = true
+fileWatcherType = "none"
+enableXsrfProtection = true
+enableCORS = true
+maxUploadSize = 25
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "dark"
+primaryColor = "#D9A441"
+backgroundColor = "#101418"
+secondaryBackgroundColor = "#17202A"
+textColor = "#E8EDF2"
+font = "sans serif"
+
+[client]
+showErrorDetails = false
+toolbarMode = "minimal"

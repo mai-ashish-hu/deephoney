@@ -1,0 +1,47 @@
+app:
+  name: DeepHoney
+  environment: lab
+  display_timezone: UTC
+
+database:
+  url: postgresql+psycopg://deephoney:deephoney@127.0.0.1:5432/deephoney
+  echo: false
+  pool_size: 5
+  pool_max_overflow: 5
+
+paths:
+  data_dir: data
+  raw_dir: data/raw
+  processed_dir: data/processed
+  artifact_dir: data/artifacts
+  sample_dir: data/samples
+  model_dir: models
+
+ingestion:
+  max_line_bytes: 1048576
+  archive_raw: false
+  follow_interval_seconds: 5
+  parser_failure_excerpt_bytes: 2000
+
+detection:
+  rules_version: "2024.1.0"
+  medium_threshold: 25
+  high_threshold: 60
+  max_evidence_items: 30
+  ml_enabled: false
+  sequence_enabled: false
+
+pcap:
+  max_file_bytes: 52428800
+  max_packets: 100000
+  max_seconds: 60
+
+dashboard:
+  page_size: 50
+  cache_ttl_seconds: 15
+  show_raw_events: true
+  reveal_passwords: false
+
+safety:
+  require_loopback_for_live_attacks: true
+  allow_public_attack_targets: false

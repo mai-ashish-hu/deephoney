@@ -1,0 +1,191 @@
+name: deephoney
+
+x-app-environment: &app-environment
+  DATABASE_URL: "postgresql+psycopg://${POSTGRES_USER:-deephoney}:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@postgres:5432/${POSTGRES_DB:-deephoney}"
+  DEEPHONEY_PROJECT_ROOT: /app
+  DEEPHONEY_ENV: lab
+  DEEPHONEY_DISPLAY_TIMEZONE: "${DEEPHONEY_DISPLAY_TIMEZONE:-UTC}"
+  DEEPHONEY_LOG_LEVEL: "${DEEPHONEY_LOG_LEVEL:-INFO}"
+  DEEPHONEY_DATA_DIR: /app/data
+  DEEPHONEY_MODEL_DIR: /app/models
+  COWRIE_LOG_GLOB: /cowrie-var/log/cowrie/cowrie.json
+  DIONAEA_LOG_GLOB: /dionaea-var/lib/dionaea/dionaea.json
+  DIONAEA_PLAIN_LOG_GLOB: /dionaea-var/log/dionaea/dionaea.log
+
+x-app-base: &app-base
+  image: deephoney/app:1.0.0
+  build:
+    context: .
+    dockerfile: Dockerfile
+  restart: unless-stopped
+  init: true
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+  environment: *app-environment
+  networks:
+    - backend
+  volumes:
+    - ./models:/app/models:ro
+    - cowrie_var:/cowrie-var:ro
+    - dionaea_var:/dionaea-var:ro
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+services:
+  postgres:
+    image: postgres:16.4-bookworm@sha256:e62fbf9d3e2b49816a32c400ed2dba83e3b361e6833e624024309c35d334b412
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB:-deephoney}"
+      POSTGRES_USER: "${POSTGRES_USER:-deephoney}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  migrate:
+    <<: *app-base
+    restart: "no"
+    command: ["python", "-m", "deephoney", "init-db"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  cowrie:
+    image: deephoney/cowrie:2.5.0-2024
+    build:
+      context: .
+      dockerfile: deployments/cowrie/Dockerfile
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    ports:
+      - "${LAB_BIND_ADDRESS:-127.0.0.1}:${COWRIE_SSH_PORT:-2222}:2222"
+      - "${LAB_BIND_ADDRESS:-127.0.0.1}:${COWRIE_TELNET_PORT:-2223}:2223"
+    volumes:
+      - cowrie_var:/opt/cowrie-src/var
+    networks:
+      - honeypot_ingress
+    pids_limit: 256
+    mem_limit: 256m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  dionaea:
+    image: deephoney/dionaea:0.11.0-2024
+    build:
+      context: .
+      dockerfile: deployments/dionaea/Dockerfile
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    sysctls:
+      net.ipv4.ip_unprivileged_port_start: 0
+    ports:
+      - "${LAB_BIND_ADDRESS:-127.0.0.1}:${DIONAEA_FTP_PORT:-2121}:21"
+      - "${LAB_BIND_ADDRESS:-127.0.0.1}:${DIONAEA_HTTP_PORT:-8080}:80"
+      - "${LAB_BIND_ADDRESS:-127.0.0.1}:${DIONAEA_SMB_PORT:-4450}:445"
+      - "${LAB_BIND_ADDRESS:-127.0.0.1}:${DIONAEA_TFTP_PORT:-6969}:69/udp"
+    volumes:
+      - dionaea_var:/opt/dionaea/var
+    networks:
+      - honeypot_ingress
+    pids_limit: 256
+    mem_limit: 768m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  dashboard:
+    <<: *app-base
+    command:
+      - python
+      - -m
+      - deephoney
+      - dashboard
+      - --address
+      - 0.0.0.0
+      - --port
+      - "8501"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    ports:
+      - "${LAB_BIND_ADDRESS:-127.0.0.1}:${DASHBOARD_PORT:-8501}:8501"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; s=socket.create_connection(('127.0.0.1', 8501), 3); s.close()"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    read_only: false
+
+  ingestor:
+    <<: *app-base
+    command:
+      - python
+      - -m
+      - deephoney
+      - follow
+      - --cowrie-glob
+      - /cowrie-var/log/cowrie/cowrie.json
+      - --dionaea-glob
+      - /dionaea-var/lib/dionaea/dionaea.json
+      - --dionaea-plain-glob
+      - /dionaea-var/log/dionaea/dionaea.log
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    stop_grace_period: 30s
+    healthcheck:
+      test: ["CMD", "python", "-m", "deephoney", "healthcheck", "--json"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+networks:
+  backend:
+    name: deephoney_backend
+    internal: true
+  honeypot_ingress:
+    name: deephoney_honeypot
+    internal: true
+
+volumes:
+  postgres_data:
+    name: deephoney_postgres
+  cowrie_var:
+    name: deephoney_cowrie_var
+  dionaea_var:
+    name: deephoney_dionaea_var

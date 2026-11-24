@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools==74.1.2", "wheel==0.44.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deephoney"
+version = "1.0.0"
+description = "Multi-honeypot threat monitoring with Cowrie, Dionaea, explainable risk scoring, and a Streamlit dashboard."
+readme = "README.md"
+requires-python = ">=3.12.5,<3.13"
+license = { text = "MIT" }
+authors = [
+  { name = "DeepHoney contributors" },
+]
+keywords = ["honeypot", "cowrie", "dionaea", "threat-intelligence", "security", "streamlit"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Framework :: Streamlit",
+  "Intended Audience :: Education",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+]
+dependencies = [
+  "alembic==1.13.2",
+  "joblib==1.4.2",
+  "numpy==1.26.4",
+  "pandas==2.2.2",
+  "plotly==5.24.0",
+  "psycopg[binary]==3.2.1",
+  "pydantic==2.8.2",
+  "PyYAML==6.0.2",
+  "scapy==2.5.0",
+  "scikit-learn==1.5.1",
+  "SQLAlchemy==2.0.32",
+  "streamlit==1.38.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.3.2",
+  "ruff==0.6.3",
+]
+ml = [
+  "torch==2.4.0",
+]
+simulator = [
+  "paramiko==3.4.1",
+]
+
+[project.scripts]
+deephoney = "deephoney.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+deephoney = ["py.typed"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+  "integration: tests that touch a real (temporary) database",
+  "slow: tests that take more than a few seconds",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning:streamlit.*",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "scripts", "tests"]
+extend-exclude = [".agents"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = [
+  "E501",
+  "RUF001",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+"src/deephoney/dashboard/app.py" = ["E402"]
+"scripts/_bootstrap.py" = ["E402"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

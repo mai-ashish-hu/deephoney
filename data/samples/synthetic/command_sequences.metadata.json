@@ -1,0 +1,7 @@
+{
+  "notice": "Synthetic dataset generated for pipeline validation only. It is not captured traffic and must not be cited as real-world accuracy.",
+  "path": "/home/deephoney/Desktop/DeepHoney/data/samples/synthetic/command_sequences.jsonl",
+  "rows": 80,
+  "seed": 43,
+  "synthetic": true
+}

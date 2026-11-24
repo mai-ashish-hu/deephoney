@@ -1,0 +1,10 @@
+{
+  "benign": 120,
+  "feature_version": "2024.1.0",
+  "malicious": 120,
+  "notice": "Synthetic dataset generated for pipeline validation only. It is not captured traffic and must not be cited as real-world accuracy.",
+  "path": "/home/deephoney/Desktop/DeepHoney/data/samples/synthetic/synthetic_sessions.csv",
+  "rows": 240,
+  "seed": 42,
+  "synthetic": true
+}

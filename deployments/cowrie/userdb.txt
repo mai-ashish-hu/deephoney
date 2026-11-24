@@ -1,0 +1,13 @@
+# Cowrie user database for the DeepHoney demonstration.
+#
+# Format: username:x:password
+#   *  matches any username/password
+#   !  at the start of a password denies that password
+#
+# These are OBVIOUS PLACEHOLDERS, not credentials for any real system.  They
+# exist so the simulator can demonstrate a successful login and an interactive
+# shell.  Every other credential is denied by the final rule.
+root:x:DEMO_PASSWORD_NOT_REAL_11
+admin:x:DEMO_PASSWORD_NOT_REAL_01
+test:x:DEMO_PASSWORD_NOT_REAL_03
+*:x:!*
